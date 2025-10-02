@@ -89,8 +89,8 @@ export async function updatePerk(req, res, next) {
       return res.status(400).json({ message: error.details[0].message });
 
     const doc = await Perk.findByIdAndUpdate(req.params.id, value, {
-      new: true, // return updated doc
-      runValidators: true, // run Mongoose validators
+      new: true,
+      runValidators: true,
     });
 
     if (!doc) return res.status(404).json({ message: "Perk not found" });
